@@ -80,7 +80,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="price">Price</label>
-                                <input class="form-control" id="price" (input)="price = $event.target.value">
+                                <input type="number" class="form-control" id="price" (input)="price = $event.target.value">
                             </div>
                         </div>
                         <div *ngIf="showSuccess" class="alert alert-success" role="alert">
@@ -130,7 +130,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="price">Price</label>
-                                <input class="form-control" id="price" (input)="price = $event.target.value" [value]="price">
+                                <input type="number" class="form-control" id="price" (input)="price = $event.target.value" [value]="price">
                             </div>
                         </div>
                         <div *ngIf="showSuccess" class="alert alert-success" role="alert">

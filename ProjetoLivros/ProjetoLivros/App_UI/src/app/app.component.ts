@@ -59,7 +59,7 @@ export class AppComponent {
             Name: this.book_name,
             Author: this.author,
             PublisherName: this.publisher,
-            Price: this.price
+            Price: parseFloat(this.price.toString())
         }).subscribe(data => {
             this.showSuccess = true;
             this.getAllBooks();
@@ -84,7 +84,7 @@ export class AppComponent {
             Name: this.book_name,
             Author: this.author,
             PublisherName: this.publisher,
-            Price: this.price
+            Price: parseFloat(this.price.toString())
         }).subscribe(data => {
             this.showSuccess = true;
             this.getAllBooks();

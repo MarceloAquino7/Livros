@@ -52,7 +52,7 @@ var AppComponent = /** @class */ (function () {
             Name: this.book_name,
             Author: this.author,
             PublisherName: this.publisher,
-            Price: this.price
+            Price: parseFloat(this.price.toString())
         }).subscribe(function (data) {
             _this.showSuccess = true;
             _this.getAllBooks();
@@ -76,7 +76,7 @@ var AppComponent = /** @class */ (function () {
             Name: this.book_name,
             Author: this.author,
             PublisherName: this.publisher,
-            Price: this.price
+            Price: parseFloat(this.price.toString())
         }).subscribe(function (data) {
             _this.showSuccess = true;
             _this.getAllBooks();
