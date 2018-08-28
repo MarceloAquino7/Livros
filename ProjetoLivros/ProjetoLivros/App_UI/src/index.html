@@ -1,0 +1,145 @@
+﻿<main>
+    <section>
+        <div class="row">
+            <div class="col s12 m6">
+
+                <div *ngIf="!isnew && !iseditable" class="card blue-grey darken-1">
+                    <div class="row">
+                        <div class="col-lg-10" style="text-align: center;">
+                            <span>
+                                Book System v1.0
+                            </span>
+                        </div>
+                        <div class="col-lg-2">
+                            <button style="float:right" type="button" class="btn btn-primary" (click)="new_book()">New</button>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="card-action">
+                        <table class="table table-hover" *ngIf="list_books">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" (click)="orderbyname()">Name</th>
+                                    <th scope="col">Author</th>
+                                    <th scope="col">Publisher</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col" style="text-align: center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let item of list_books">
+                                <tr>
+                                    <td scope="row">{{item.Name}}</td>
+                                    <td>{{item.Author}}</td>
+                                    <td>{{item.PublisherName}}</td>
+                                    <td>{{item.Price}}</td>
+                                    <td style="text-align: center">
+                                        <button type="button" class="btn btn-secondary" (click)="edit(item)">Edit</button>
+                                        <button type="button" class="btn btn-secondary" (click)="delete_book(item)">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br />
+                <div *ngIf="isnew" class="card blue-grey darken-1">
+                    <div class="row">
+                        <div class="col-lg-9" style="text-align: center;">
+                            <span>
+                                Create
+                            </span>
+                        </div>
+                        <div class="col-lg-3">
+                            <button type="button" class="btn btn-primary" (click)="save_book()">Save</button>
+                            <button type="button" class="btn btn-secondary" (click)="go_back()">Back</button>
+
+                        </div>
+                    </div>
+                    <br />
+                    <form>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="book_name">Book's name</label>
+                                <input class="form-control" id="book_name" (input)="book_name = $event.target.value">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="author">Author's name</label>
+                                <input class="form-control" id="author" (input)="author = $event.target.value">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="publisher">Publisher's name</label>
+                                <input class="form-control" id="publisher" (input)="publisher = $event.target.value">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input class="form-control" id="price" (input)="price = $event.target.value">
+                            </div>
+                        </div>
+                        <div *ngIf="showSuccess" class="alert alert-success" role="alert">
+                            <span>Insert successful!</span>
+                        </div>
+                    </form>
+                </div>
+
+
+                <div *ngIf="iseditable" class="card blue-grey darken-1">
+                    <div class="row">
+                        <div class="col-lg-9" style="text-align: center;">
+                            <span>
+                                Editing
+                            </span>
+                        </div>
+                        <div class="col-lg-3">
+                            <button type="button" class="btn btn-primary" (click)="save_edit()">Save</button>
+                            <button type="button" class="btn btn-secondary" (click)="go_back()">Back</button>
+                        </div>
+                    </div>
+                    <br />
+                    <form>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="book_name">Book's name</label>
+                                <input class="form-control" id="book_name" (input)="book_name = $event.target.value" [value]="book_name">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="author">Author's name</label>
+                                <input class="form-control" id="author" (input)="author = $event.target.value" [value]="author">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="publisher">Publisher's name</label>
+                                <input class="form-control" id="publisher" (input)="publisher = $event.target.value" [value]="publisher">
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input class="form-control" id="price" (input)="price = $event.target.value" [value]="price">
+                            </div>
+                        </div>
+                        <div *ngIf="showSuccess" class="alert alert-success" role="alert">
+                            <span>Update successful!</span>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
